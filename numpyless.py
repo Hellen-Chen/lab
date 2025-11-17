@@ -49,8 +49,10 @@ def zeros(shape: tuple[int, int]) -> Matriz:
     filas, columnas = shape
     matriz = []
     columna = []
-    for elemento_columna in range(columnas):
-        columna.append(0.0)
+    for i in range(columnas):
+        columna_matriz = columna.append(0.0)
+    for cantidad_filas in range (filas):
+        matriz.append(columna_matriz)
 
     return matriz
 
