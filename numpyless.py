@@ -47,10 +47,11 @@ def zeros(shape: tuple[int, int]) -> Matriz:
     Pista: Usa listas por comprensión anidadas
     """
     filas,columnas = shape
-    for elemento_fila in range(filas):
-        for elemento_columna in range(columnas):
-            print ("0.0")
-
+    matriz = []
+    for elemento_columna in range(columnas):
+        matriz.append(0.0)
+    
+    return matriz
 
 def ones(shape: tuple[int, int]) -> Matriz:
     """Crea una matriz rellena de unos.
