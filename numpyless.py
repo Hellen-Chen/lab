@@ -145,8 +145,8 @@ def transpose(A: Matriz) -> Matriz:
 
     Pista: Usa zip(*A) o listas por comprensión
     """
-    raise NotImplementedError("Función no implementada.")
-
+    transpose= list(zip(*A)) 
+    
 
 # -------------------------------------------------------------------
 # Sección 3: Operaciones con Vectores (⭐⭐ Intermedio)
