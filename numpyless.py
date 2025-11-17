@@ -51,10 +51,8 @@ def zeros(shape: tuple[int, int]) -> Matriz:
     columna = []
     for elemento_columna in range(columnas):
         columna.append(0.0)
-        
 
     return matriz
-
 
 
 def ones(shape: tuple[int, int]) -> Matriz:
@@ -113,7 +111,7 @@ def shape(A: Matriz) -> tuple[int, int]:
         A: La matriz de entrada.
 
     Returns:
-        tuple[int, int]: Una tupla (filas, columnas).
+        tuple[int, int]: Una tupla (filas, columnas). t
 
     Ejemplo:
         >>> shape([[1, 2, 3], [4, 5, 6]])
@@ -126,7 +124,6 @@ def shape(A: Matriz) -> tuple[int, int]:
     print("Matriz")
     print(A)
     return (filas, columnas)
-
 
 
 def transpose(A: Matriz) -> Matriz:
