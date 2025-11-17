@@ -56,6 +56,7 @@ def zeros(shape: tuple[int, int]) -> Matriz:
     return matriz
 
 
+
 def ones(shape: tuple[int, int]) -> Matriz:
     """Crea una matriz rellena de unos.
 
@@ -120,7 +121,12 @@ def shape(A: Matriz) -> tuple[int, int]:
 
     Pista: len(A) da filas, len(A[0]) da columnas
     """
-    raise NotImplementedError("Función no implementada.")
+    filas = len(A)
+    columnas = len(A[0])
+    print("Matriz")
+    print(A)
+    return (filas, columnas)
+
 
 
 def transpose(A: Matriz) -> Matriz:
