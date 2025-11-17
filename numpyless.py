@@ -51,6 +51,7 @@ def zeros(shape: tuple[int, int]) -> Matriz:
         for elemento_columna in range(columnas):
             print ("0.0")
 
+holaaaaaaa
 
 def ones(shape: tuple[int, int]) -> Matriz:
     """Crea una matriz rellena de unos.
