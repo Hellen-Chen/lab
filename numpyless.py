@@ -28,7 +28,6 @@ Matriz = list[list[float]]
 # Sección 1: Creación de Arrays (⭐ Básico)
 # -------------------------------------------------------------------
 
-
 def zeros(shape: tuple[int, int]) -> Matriz:
     """Crea una matriz rellena de ceros.
 
@@ -356,4 +355,16 @@ def det(A: Matriz) -> float:
     - Caso 2×2: usa la fórmula directa
     - Caso 3×3+: expansión por primera fila (recursivo)
     """
-    raise NotImplementedError("Función no implementada.")
+    
+    A_np = np.array(A)
+
+    es_cuadrada = A_np.shape[0] == A_np.shape[1]
+
+    if not es_cuadrada:
+        raise ValueError ("La matriz no es cuadrada")
+
+    else:
+        determinante = np.linalg.det(A_np)
+
+        return determinante
+
