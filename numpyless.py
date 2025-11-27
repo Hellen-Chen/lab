@@ -45,7 +45,16 @@ def zeros(shape: tuple[int, int]) -> Matriz:
 
     Pista: Usa listas por comprensión anidadas
     """
-    raise NotImplementedError("Función no implementada.")
+    filas, columnas = shape
+    matriz = []
+    columna = []
+    for i in range(filas):
+    for i in range(columnas):
+        columna_matriz = columna.append(0.0)
+    for cantidad_filas in range (filas):
+        matriz.append(columna_matriz)
+
+    return matriz
 
 
 def ones(shape: tuple[int, int]) -> Matriz:
@@ -104,7 +113,7 @@ def shape(A: Matriz) -> tuple[int, int]:
         A: La matriz de entrada.
 
     Returns:
-        tuple[int, int]: Una tupla (filas, columnas).
+        tuple[int, int]: Una tupla (filas, columnas). t
 
     Ejemplo:
         >>> shape([[1, 2, 3], [4, 5, 6]])
@@ -112,7 +121,11 @@ def shape(A: Matriz) -> tuple[int, int]:
 
     Pista: len(A) da filas, len(A[0]) da columnas
     """
-    raise NotImplementedError("Función no implementada.")
+    filas = len(A)
+    columnas = len(A[0])
+    print("Matriz")
+    print(A)
+    return (filas, columnas)
 
 
 def transpose(A: Matriz) -> Matriz:
@@ -134,8 +147,8 @@ def transpose(A: Matriz) -> Matriz:
 
     Pista: Usa zip(*A) o listas por comprensión
     """
-    raise NotImplementedError("Función no implementada.")
-
+    transpose= list(zip(*A)) 
+    
 
 # -------------------------------------------------------------------
 # Sección 3: Operaciones con Vectores (⭐⭐ Intermedio)
