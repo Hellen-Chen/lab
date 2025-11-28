@@ -147,8 +147,8 @@ def transpose(A: Matriz) -> Matriz:
 
     Pista: Usa zip(*A) o listas por comprensión
     """
-    transpose= list(zip(*A)) 
-    
+    transpuesta = [list(fila) for fila in zip(*A)]
+    return transpuesta
 
 # -------------------------------------------------------------------
 # Sección 3: Operaciones con Vectores (⭐⭐ Intermedio)
@@ -274,7 +274,15 @@ def add_matrices(A: Matriz, B: Matriz) -> Matriz:
 
     Pista: Suma elemento a elemento, fila por fila
     """
-    raise NotImplementedError("Función no implementada.")
+    if len(A) != len(B) or len(A[0]) != len(B[0]):
+        raise ValueError("Las matrices deben tener las mismas dimensiones.")
+    C = []
+    for i in range(len(A)):
+        fila = []
+        for j in range(len(A[0])):
+            fila.append(A[i][j] + B[i][j])
+        C.append(fila)
+    return C
 
 
 def multiply_matrix(c: float, A: Matriz) -> Matriz:
@@ -295,7 +303,13 @@ def multiply_matrix(c: float, A: Matriz) -> Matriz:
 
     Pista: Similar a multiply() pero para cada fila
     """
-    raise NotImplementedError("Función no implementada.")
+    C = []
+    for fila in A:
+            nueva_fila = []
+            for elemento in fila:
+                nueva_fila.append(c * elemento)
+            C.append(nueva_fila)
+    return C
 
 
 def matmul(A: Matriz, B: Matriz | Vector) -> Matriz | Vector:
