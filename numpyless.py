@@ -21,6 +21,8 @@ Tipos de Datos:
 """
 
 # --- Alias de Tipos Nativos ---
+import numpyless as npl
+
 Vector = list[float]
 Matriz = list[list[float]]
 
@@ -382,16 +384,34 @@ def det(A: Matriz) -> float:
     - Caso 2×2: usa la fórmula directa
     - Caso 3×3+: expansión por primera fila (recursivo)
     """
+
+    if len(A) == 0:
+        return 1.0
+
+    if not len(A) == len(A[0]) :
+        raise ValueError ("La matriz debe ser cuadrada")
     
-    A_np = np.array(A)
-
-    es_cuadrada = A_np.shape[0] == A_np.shape[1]
-
-    if not es_cuadrada:
-        raise ValueError ("La matriz no es cuadrada")
-
     else:
-        determinante = np.linalg.det(A_np)
+
+        if len(A) == 1 :
+            return float(A[0][0])
+        if len(A) == 2:
+            return A[0][0] * A[1][1] - A[0][1] * A[1][0]
+        
+        n = len (A)
+        determinante = 0.0
+
+        if n != 1 and n != 2:
+            for j in range(n):
+
+                submatriz= []
+
+                for i, fila in enumerate(A):
+                    if i != 0:
+                        nueva_fila = fila[:j] + fila[j+1:]
+                        submatriz.append(nueva_fila)
+                signo = 1 if j % 2 == 0 else -1
+                determinante += signo * A[0][j] * det(submatriz)
 
         return determinante
 
