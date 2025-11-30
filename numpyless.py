@@ -30,6 +30,7 @@ Matriz = list[list[float]]
 # Sección 1: Creación de Arrays (⭐ Básico)
 # -------------------------------------------------------------------
 
+
 def zeros(shape: tuple[int, int]) -> Matriz:
     """Crea una matriz rellena de ceros.
 
@@ -49,7 +50,6 @@ def zeros(shape: tuple[int, int]) -> Matriz:
     """
     filas, columnas = shape
     return [[0.0 for _ in range(columnas)] for _ in range(filas)]
-
 
 
 def ones(shape: tuple[int, int]) -> Matriz:
@@ -92,7 +92,7 @@ def identity(n: int) -> Matriz:
 
     Pista: La diagonal tiene 1.0 cuando fila == columna
     """
-    matriz =[]
+    matriz = []
     for i in range(n):
         fila = []
         for j in range(n):
@@ -154,6 +154,7 @@ def transpose(A: Matriz) -> Matriz:
     """
     transpuesta = [list(fila) for fila in zip(*A)]
     return transpuesta
+
 
 # -------------------------------------------------------------------
 # Sección 3: Operaciones con Vectores (⭐⭐ Intermedio)
@@ -310,10 +311,10 @@ def multiply_matrix(c: float, A: Matriz) -> Matriz:
     """
     C = []
     for fila in A:
-            nueva_fila = []
-            for elemento in fila:
-                nueva_fila.append(c * elemento)
-            C.append(nueva_fila)
+        nueva_fila = []
+        for elemento in fila:
+            nueva_fila.append(c * elemento)
+        C.append(nueva_fila)
     return C
 
 
@@ -391,30 +392,27 @@ def det(A: Matriz) -> float:
     if len(A) == 0:
         return 1.0
 
-    if not len(A) == len(A[0]) :
-        raise ValueError ("La matriz debe ser cuadrada")
-    
-    else:
+    if not len(A) == len(A[0]):
+        raise ValueError("La matriz debe ser cuadrada")
 
-        if len(A) == 1 :
+    else:
+        if len(A) == 1:
             return float(A[0][0])
         if len(A) == 2:
             return A[0][0] * A[1][1] - A[0][1] * A[1][0]
-        
-        n = len (A)
+
+        n = len(A)
         determinante = 0.0
 
         if n != 1 and n != 2:
             for j in range(n):
-
-                submatriz= []
+                submatriz = []
 
                 for i, fila in enumerate(A):
                     if i != 0:
-                        nueva_fila = fila[:j] + fila[j+1:]
+                        nueva_fila = fila[:j] + fila[j + 1 :]
                         submatriz.append(nueva_fila)
                 signo = 1 if j % 2 == 0 else -1
                 determinante += signo * A[0][j] * det(submatriz)
 
         return determinante
-
