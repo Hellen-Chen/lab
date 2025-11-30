@@ -48,15 +48,8 @@ def zeros(shape: tuple[int, int]) -> Matriz:
     Pista: Usa listas por comprensión anidadas
     """
     filas, columnas = shape
-    matriz = []
-    columna = []
-    for i in range(filas):
-    for i in range(columnas):
-        columna_matriz = columna.append(0.0)
-    for cantidad_filas in range (filas):
-        matriz.append(columna_matriz)
+    return [[0.0 for _ in range(columnas)] for _ in range(filas)]
 
-    return matriz
 
 
 def ones(shape: tuple[int, int]) -> Matriz:
@@ -76,7 +69,8 @@ def ones(shape: tuple[int, int]) -> Matriz:
 
     Pista: Similar a zeros() pero con 1.0
     """
-    raise NotImplementedError("Función no implementada.")
+    filas, columnas = shape
+    return [[1.0 for _ in range(columnas)] for _ in range(filas)]
 
 
 def identity(n: int) -> Matriz:
@@ -98,7 +92,16 @@ def identity(n: int) -> Matriz:
 
     Pista: La diagonal tiene 1.0 cuando fila == columna
     """
-    raise NotImplementedError("Función no implementada.")
+    matriz =[]
+    for i in range(n):
+        fila = []
+        for j in range(n):
+            if i == j:
+                fila.append(1.0)
+            else:
+                fila.append(0.0)
+        matriz.append(fila)
+    return matriz
 
 
 # -------------------------------------------------------------------
