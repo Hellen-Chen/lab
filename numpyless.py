@@ -184,7 +184,13 @@ def dot(v: Vector, w: Vector) -> float:
 
     Pista: Usa sum() y zip()
     """
-    raise NotImplementedError("Función no implementada.")
+    if len(v) != len(w):
+        raise ValueError("Los vectores no tienen la misma dimensión")
+    producto_punto = 0.0
+    for vi, wi in zip(v, w):
+        producto_punto += vi * wi
+
+    return producto_punto
 
 
 def add(v: Vector, w: Vector) -> Vector:
@@ -208,7 +214,13 @@ def add(v: Vector, w: Vector) -> Vector:
 
     Pista: Usa listas por comprensión con zip()
     """
-    raise NotImplementedError("Función no implementada.")
+    if len(v) != len(w):
+        raise ValueError("Los vectores no tienen la misma dimensión")
+    suma_vectorial = []
+    for vi, wi in zip(v, w):
+        suma = vi + wi
+        suma_vectorial.append(float(suma))
+    return suma_vectorial
 
 
 def multiply(c: float, v: Vector) -> Vector:
@@ -229,7 +241,11 @@ def multiply(c: float, v: Vector) -> Vector:
 
     Pista: Multiplica c por cada elemento
     """
-    raise NotImplementedError("Función no implementada.")
+    multiplicacion_vectorial = []
+    for elemento in v:
+        valor = c * elemento
+        multiplicacion_vectorial.append(float(valor))
+    return multiplicacion_vectorial
 
 
 def norm(v: Vector) -> float:
@@ -251,7 +267,9 @@ def norm(v: Vector) -> float:
 
     Pista: Usa dot(v, v) y luego sqrt() del módulo math
     """
-    raise NotImplementedError("Función no implementada.")
+    suma_cuadrados = dot(v, v)
+    magnitud = suma_cuadrados**0.5
+    return magnitud
 
 
 # -------------------------------------------------------------------
