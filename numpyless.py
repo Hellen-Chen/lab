@@ -364,7 +364,34 @@ def matmul(A: Matriz, B: Matriz | Vector) -> Matriz | Vector:
     Pista: Para matrices, cada elemento resultado[i][j] es el
            producto punto de la fila i de A con la columna j de B
     """
-    raise NotImplementedError("Función no implementada.")
+    if not A or not isinstance(A[0], list):
+        raise ValueError("A no puede estar vacía")
+    m = len(A)
+    n = len(A[0])
+    if isinstance(B[0], list): 
+        p = len(B[0])
+        if len(B) != n:
+            raise ValueError("Las dimensiones no coinciden")
+        resultado = []
+        for i in range(m):
+            fila_res = []
+            for j in range(p):
+                suma = 0.0
+                for k in range(n):
+                    suma += A[i][k] * B[k][j]
+                fila_res.append(float(suma))
+            resultado.append(fila_res)
+        return resultado
+    else:
+        if len(B) != n:
+            raise ValueError("Las dimensiones no coinciden")
+        resultado = []
+        for i in range(m):
+            suma = 0.0
+            for k in range(n):
+                suma += A[i][k] * B[k]
+            resultado.append(float(suma))
+        return resultado
 
 
 # -------------------------------------------------------------------
